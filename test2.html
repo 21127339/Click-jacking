@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Overlay Login</title>
+
+<style>
+    html, body {
+        margin: 0;
+        height: 100%;
+    }
+
+    /* iframe nền */
+    iframe {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+        z-index: 1;
+    }
+
+    /* form đè lên */
+    .login-box {
+        position: fixed;
+        top: 210px;     /* chỉnh vị trí dọc */
+        left: 550px;    /* chỉnh vị trí ngang */
+        z-index: 2;     /* cao hơn iframe */
+        /*background: rgba(255,255,255,0.9);*/
+        padding: 20px;
+        border-radius: 8px;
+    }
+
+    input {
+        display: block;
+        margin-bottom: 10px;
+        width: 200px;
+        height: 28px;
+        opacity: 0.5;
+    }
+
+    button {
+        width: 100px;
+        height: 30px;
+    }
+</style>
+</head>
+
+<body>
+
+<iframe src="https://qlns.nuian.vn"></iframe>
+
+<div class="login-box">
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="dangNhap()">OK</button>
+</div>
+
+<script>
+function dangNhap() {
+    var user = document.getElementById("username").value;
+    var pass = document.getElementById("password").value;
+
+    alert(user + " - " + pass);
+}
+</script>
+
+</body>
+</html>

